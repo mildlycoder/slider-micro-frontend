@@ -11,7 +11,7 @@
 
 <body class="flex items-center justify-center h-screen p-6">
   <div class="w-full text-center p-6 bg-white rounded-lg shadow-lg"
-    x-data="{ value: 200, plans: ['Free', 'Basic', 'Premium'], emails: [200, 1000, 2000, 10000, 30000, 100000, 1000000], currentPlan: 'Free', currentEmails: 200 }">
+    x-data="{ value: 0, plans: ['Free', 'Basic', 'Premium'], emails: [200, 1000, 2000, 10000, 30000, 100000, 1000000], RangeValue: 0, currentPlan: 'Free', currentEmails: 200 }">
 
     <!-- Plan Labels -->
     <div class="relative">
@@ -23,11 +23,12 @@
 
       <!-- Range Slider -->
       <div class="absolute bottom-0 w-full p-2 rounded-full flex items-center justify-center bg-gray-200">
-        <input type="range" x-model="value" min="0" max="6" step="1"
+        <input type="range" x-model="value" min="0" max="100" step="0.1"
           class="w-full appearance-none h-2 bg-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           @input="
-                currentEmails = emails[value];
-                currentPlan = value <= 1 ? 'Free' : value <= 3 ? 'Basic' : 'Premium';
+                let index = Math.round(value / 100 * (emails.length - 1));
+                currentEmails = emails[index];
+                currentPlan = index <= 1 ? 'Free' : index <= 3 ? 'Basic' : 'Premium';
             ">
       </div>
     </div>
@@ -52,4 +53,3 @@
 </body>
 
 </html>
-
