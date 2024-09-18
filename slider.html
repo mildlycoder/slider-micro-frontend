@@ -14,20 +14,22 @@
     x-data="{ value: 200, plans: ['Free', 'Basic', 'Premium'], emails: [200, 1000, 2000, 10000, 30000, 100000, 1000000], currentPlan: 'Free', currentEmails: 200 }">
 
     <!-- Plan Labels -->
-    <div class="flex justify-between text-gray-600 mb-4 gap-2">
-      <span class="w-1/6 text-left bg-gray-100 h-40 rounded p-5 flex items-start justify-start">Free</span>
-      <span class="w-2/6 text-center bg-gray-100 h-40 rounded p-5 flex items-start justify-start">Basic</span>
-      <span class="w-3/6 text-right bg-gray-100 h-40 rounded p-5 flex items-start justify-start">Premium</span>
-    </div>
+    <div class="relative">
+      <div class="flex justify-between text-gray-600 mb-4 gap-2">
+        <span class="w-1/6 text-left bg-gray-100 h-40 rounded rounded-b-xl p-5 flex items-start justify-start">Free</span>
+        <span class="w-2/6 text-center bg-gray-100 h-40 rounded p-5 flex items-start justify-start">Basic</span>
+        <span class="w-3/6 text-right bg-gradient-to-r from-gray-100 to-purple-400 h-40 rounded rounded-b-xl p-5 flex items-start justify-start">Premium</span>
+      </div>
 
-    <!-- Range Slider -->
-    <div class="p-2 rounded-full flex items-center justify-center bg-gray-200">
-      <input type="range" x-model="value" min="0" max="6" step="1"
-        class="w-full appearance-none h-2 bg-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-        @input="
+      <!-- Range Slider -->
+      <div class="absolute bottom-0 w-full p-2 rounded-full flex items-center justify-center bg-gray-200">
+        <input type="range" x-model="value" min="0" max="6" step="1"
+          class="w-full appearance-none h-2 bg-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          @input="
                 currentEmails = emails[value];
                 currentPlan = value <= 1 ? 'Free' : value <= 3 ? 'Basic' : 'Premium';
             ">
+      </div>
     </div>
     <!-- Email Count Labels -->
     <div class="flex justify-between text-gray-500">
@@ -39,12 +41,15 @@
       <span>100K</span>
       <span>1M</span>
     </div>
-    <!-- Current Plan and Emails -->
-    <p class="text-xl font-semibold text-gray-800">Plan: <span x-text="currentPlan"></span></p>
-    <p class="text-lg text-gray-700 mb-4"><span x-text="currentEmails"></span> emails / month</p>
 
+    <!-- Current Plan and Emails as a Card -->
+    <div class="mt-6 p-4 bg-gray-100 rounded-lg md:w-[50%] shadow-md">
+      <p class="text-xl font-semibold text-gray-800">Plan: <span x-text="currentPlan"></span></p>
+      <p class="text-lg text-gray-700"><span x-text="currentEmails"></span> emails / month</p>
+    </div>
 
   </div>
 </body>
 
 </html>
+
