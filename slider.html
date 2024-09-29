@@ -11,42 +11,48 @@
 
 <body class="flex items-center justify-center h-screen p-6">
   <div class="w-full text-center p-6 bg-white rounded-lg shadow-lg"
-    x-data="{ value: 0, plans: ['Free', 'Basic', 'Premium'], emails: [200, 1000, 2000, 10000, 30000, 100000, 1000000], RangeValue: 0, currentPlan: 'Free', currentEmails: 200 }">
+    x-data="{ 
+      value: 0, 
+      emails: [200, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 17500, 20000, 22500, 25000, 27500, 30000, 35000, 40000, 45000, 50000, 60000, 70000, 80000, 90000, 100000], 
+      prices: ['Free', 4.99, 5.99, 6.99, 7.99, 8.99, 9.99, 10.99, 11.99, 12.99, 13.99, 14.99, 15.99, 16.99, 19.49, 21.99, 24.49, 26.99, 29.49, 31.99, 34.49, 36.99, 39.49, 41.99, 44.49, 46.99, 49.49, 51.99, 54.49, 56.99, 61.99, 66.99, 71.99, 76.99, 81.99, 86.99, 96.99, 106.99, 116.99, 126.99, 141.99, 156.99, 171.99, 186.99, 201.99],
+      currentEmails: 200, 
+      currentPrice: 'Free',
+      formatNumber(n) {
+        if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+        if (n >= 1000) return (n / 1000).toFixed(0) + 'K';
+        return n;
+      }
+    }">
 
     <!-- Plan Labels -->
     <div class="relative">
-      <div class="flex justify-between text-gray-600 mb-4 md:gap-2">
-        <span class="w-1/6 text-left bg-gray-100 h-40 rounded rounded-b-xl p-2 md:p-5 flex items-start justify-start">Free</span>
-        <span class="w-2/6 text-center bg-gray-100 h-40 rounded p-2 md:p-5 flex items-start justify-start">Basic</span>
-        <span class="w-3/6 text-right bg-gray-100 h-40 rounded rounded-b-xl p-2 md:p-5 flex items-start justify-start">Premium</span>
-      </div>
-
-      <!-- Range Slider -->
+      <!-- Email and Pricing Range Slider -->
       <div class="absolute bottom-0 w-full p-2 rounded-full flex items-center justify-center bg-gray-200">
-        <input type="range" x-model="value" min="0" max="100" step="0.1"
+        <input type="range" x-model="value" min="0" :max="emails.length - 1" step="1"
           class="w-full appearance-none h-2 bg-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           @input="
-                let index = Math.round(value / 100 * (emails.length - 1));
-                currentEmails = emails[index];
-                currentPlan = index <= 1 ? 'Free' : index <= 3 ? 'Basic' : 'Premium';
-            ">
+            let index = Math.round(value);
+            currentEmails = emails[index];
+            currentPrice = prices[index];
+          ">
       </div>
     </div>
+
     <!-- Email Count Labels -->
     <div class="flex justify-between text-gray-500">
-      <span>200</span>
-      <span>1K</span>
-      <span>2K</span>
-      <span>10K</span>
-      <span>30K</span>
-      <span>100K</span>
-      <span>1M</span>
+      <span x-text="formatNumber(emails[0])"></span>
+      <span x-text="900"></span>
+      <span >3K</span>
+      <span>8K</span>
+      <span>15K</span>
+      <span>40K</span>
+      <span x-text="formatNumber(emails[emails.length - 1])"></span>
     </div>
 
     <!-- Current Plan and Emails as a Card -->
     <div class="mt-6 p-4 bg-gray-100 rounded-lg md:w-[50%] shadow-md">
-      <p class="text-xl font-semibold text-gray-800">Plan: <span x-text="currentPlan"></span></p>
-      <p class="text-lg text-gray-700"><span x-text="currentEmails"></span> emails / month</p>
+      <p class="text-xl font-semibold text-gray-800">Emails: <span x-text="formatNumber(currentEmails)"></span></p>
+      <p class="text-lg text-gray-700">Price: $<span x-text="currentPrice"></span> / month</p>
     </div>
 
   </div>
