@@ -40,13 +40,13 @@
     >
       <!-- Current Plan and Emails as a Card -->
       <div class="my-16 p-4 flex flex-col rounded-lg md:w-[50%] shadow-md">
-        <p class="text-xl font-semibold text-left text-gray-800">
+        <p class="text-lg md:text-xl font-semibold text-left text-gray-800">
           Emails: <span x-text="formatNumber(currentEmails)"></span>
         </p>
         <div class="flex items-baseline text-gray-900">
-          <span class="text-3xl font-semibold">$</span>
+          <span class="text-xl md:text-3xl font-semibold">$</span>
           <span
-            class="text-5xl font-extrabold tracking-tight"
+            class="text-3xl md:text-5xl font-semibold md:font-extrabold tracking-tight"
             x-text="currentPrice"
           ></span>
           <span class="ms-1 text-xl font-normal text-gray-500">/month</span>
