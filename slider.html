@@ -39,11 +39,11 @@
       @input="updatePlanType"
     >
       <!-- Current Plan and Emails as a Card -->
-      <div class="my-16 p-4 flex flex-col rounded-lg md:w-[50%] shadow-md">
-        <p class="text-lg md:text-xl font-semibold text-left text-gray-800">
+      <div class="my-16 p-4 flex  flex-col rounded-lg md:w-[50%] shadow-md">
+        <p class="text-lg md:text-xl font-semibold text-left text-[#611FDC]">
           Emails: <span x-text="formatNumber(currentEmails)"></span>
         </p>
-        <div class="flex items-baseline text-gray-900">
+        <div class="flex items-baseline text-[#611FDC]">
           <span class="text-3xl md:text-5xl font-semibold">$</span>
           <span
             class="text-3xl md:text-5xl font-semibold tracking-tight"
@@ -64,7 +64,7 @@
             min="0"
             :max="emails.length - 1"
             step="1"
-            class="w-full appearance-none h-2 bg-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full appearance-none h-2 bg-[#611FDC] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#611FDC]"
             @input="
             let index = Math.round(value);
             currentEmails = emails[index];
@@ -87,12 +87,12 @@
 
       <!-- Pricing Cards -->
       <div
-        class="flex flex-col md:flex-row justify-around mt-10 space-y-4 md:space-y-0 md:space-x-4"
+        class="flex flex-col md:flex-row justify-around mt-10 space-y-8 md:space-y-0 md:space-x-8"
       >
         <!-- Basic Plan -->
         <div
-          :class="planType === 'Basic' ? 'border-4 border-purple-700' : 'border border-gray-200'"
-          class="w-full h-fit md:w-1/3 p-8 bg-white rounded-lg shadow-lg"
+          :class="planType === 'Basic' ? 'border-4 border-[#611FDC]' : 'border border-gray-200'"
+          class="w-full h-fit md:w-1/3 p-12 bg-white rounded-lg shadow-lg"
         >
           <h5 class="mb-4 text-4xl font-medium text-left">Basic</h5>
           <p class="mb-4 text-sm text-gray-500 text-left">
@@ -101,7 +101,7 @@
           <ul role="list" class="space-y-5 my-7">
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -118,7 +118,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -135,7 +135,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -152,7 +152,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -169,7 +169,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -186,7 +186,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -203,7 +203,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -221,7 +221,7 @@
           </ul>
           <button
             type="button"
-            class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+            class="text-white bg-[#611FDC] hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
           >
             Choose plan
           </button>
@@ -229,8 +229,8 @@
 
         <!-- Premium Plan -->
         <div
-          :class="planType === 'Premium' ? 'border-4 border-purple-700' : 'border border-gray-200'"
-          class="w-full h-fit md:w-1/3 p-8 bg-white rounded-lg shadow-lg"
+          :class="planType === 'Premium' ? 'border-4 border-[#611FDC]' : 'border border-gray-200'"
+          class="w-full h-fit md:w-1/3 p-12 bg-white rounded-lg shadow-lg"
         >
           <h5 class="mb-4 text-4xl font-medium text-left">Premium</h5>
           <p class="mb-4 text-sm text-gray-500 text-left">
@@ -239,7 +239,7 @@
           <ul role="list" class="space-y-5 my-7">
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -256,7 +256,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -273,7 +273,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -290,7 +290,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -307,7 +307,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -324,7 +324,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -341,7 +341,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -358,7 +358,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -376,7 +376,7 @@
           </ul>
           <button
             type="button"
-            class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+            class="text-white bg-[#611FDC] hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
           >
             Choose plan
           </button>
@@ -384,8 +384,8 @@
 
         <!-- Enterprise Plan -->
         <div
-          :class="planType === 'Enterprise' ? 'border-4 border-purple-700' : 'border border-gray-200'"
-          class="w-full h-fit md:w-1/3 p-8 bg-white rounded-lg shadow-lg"
+          :class="planType === 'Enterprise' ? 'border-4 border-[#611FDC]' : 'border border-gray-200'"
+          class="w-full h-fit md:w-1/3 p-12 bg-white rounded-lg shadow-lg"
         >
           <h5 class="mb-4 text-4xl font-medium text-left">Enterprise</h5>
           <p class="mb-4 text-sm text-gray-500 text-left">
@@ -394,7 +394,7 @@
           <ul role="list" class="space-y-5 my-7">
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -411,7 +411,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -428,7 +428,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -445,7 +445,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -462,7 +462,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -479,7 +479,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -496,7 +496,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -513,7 +513,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -530,7 +530,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -547,7 +547,7 @@
             </li>
             <li class="flex items-center">
               <svg
-                class="flex-shrink-0 w-4 h-4 text-purple-700"
+                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -565,7 +565,7 @@
           </ul>
           <button
             type="button"
-            class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+            class="text-white bg-[#611FDC] hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
           >
             Choose plan
           </button>
