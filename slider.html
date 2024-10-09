@@ -58,18 +58,21 @@
       class="w-full text-center bg-white rounded-lg"
       x-data="{ 
       value: 0, 
-      emails: [200, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 17500, 20000, 22500, 25000, 27500, 30000, 35000, 40000, 45000, 50000, 60000, 70000, 80000, 90000, 100000], 
-      prices: ['Free', 4.99, 5.99, 6.99, 7.99, 8.99, 9.99, 10.99, 11.99, 12.99, 13.99, 14.99, 15.99, 16.99, 19.49, 21.99, 24.49, 26.99, 29.49, 31.99, 34.49, 36.99, 39.49, 41.99, 44.49, 46.99, 49.49, 51.99, 54.49, 56.99, 61.99, 66.99, 71.99, 76.99, 81.99, 86.99, 96.99, 106.99, 116.99, 126.99, 141.99, 156.99, 171.99, 186.99, 201.99],
-      currentEmails: 200, 
+      emails: [0,20, 40, 60, 80,100, 120, 140, 160, 180 ,200, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 17500, 20000, 22500, 25000, 27500, 30000, 35000, 40000, 45000, 50000, 60000, 70000, 80000, 90000, 100000], 
+      prices: ['Free','Free','Free','Free','Free', 'Free','Free', 'Free', 'Free', 'Free', 'Free', 4.99, 5.99, 6.99, 7.99, 8.99, 9.99, 10.99, 11.99, 12.99, 13.99, 14.99, 15.99, 16.99, 19.49, 21.99, 24.49, 26.99, 29.49, 31.99, 34.49, 36.99, 39.49, 41.99, 44.49, 46.99, 49.49, 51.99, 54.49, 56.99, 61.99, 66.99, 71.99, 76.99, 81.99, 86.99, 96.99, 106.99, 116.99, 126.99, 141.99, 156.99, 171.99, 186.99, 201.99],
+      currentEmails: 0, 
       currentPrice: 'Free',
-      planType: 'Basic',
+      planType: 'Free',
       formatNumber(n) {
         if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
         if (n >= 1000) return (n / 1000).toFixed(0) + 'K';
         return n;
       },
       updatePlanType() {
-        if (this.currentEmails <= 5000) {
+      if(this.currentEmails <= 200){
+      this.planType = 'Free';
+      }
+        else if (this.currentEmails <= 5000) {
           this.planType = 'Basic';
         } else if (this.currentEmails <= 20000) {
           this.planType = 'Premium';
@@ -102,13 +105,16 @@
       </div>
 
       <div class="hidden md:flex justify-between text-gray-600 mb-4 gap-2">
+<span class="w-[40%] text-left bg-gray-100 h-40 rounded p-5 flex items-start justify-start">
+    <p class="font-semibold">Free Plan</p>
+  </span>
   <span class="w-4/6 text-left bg-gray-100 h-40 rounded p-5 flex items-start justify-start">
     <p class="font-semibold">Basic Plan</p>
   </span>
-  <span class="w-3/6 text-center bg-gray-100 h-40 rounded p-5 flex items-start justify-center">
+  <span class="w-3/6 text-left bg-gray-100 h-40 rounded p-5 flex items-start justify-center">
     <p class="font-semibold">Premium Plan</p>
   </span>
-  <span class="w-3/6 text-right bg-gray-100 h-40 rounded p-5 flex items-start justify-end">
+  <span class="w-3/6 text-left bg-gray-100 h-40 rounded p-5 flex items-start justify-end">
     <p class="font-semibold">Enterprise Plan</p>
   </span>
 </div>
@@ -137,16 +143,21 @@
 
       <!-- Email Count Labels -->
       <div class="flex justify-between text-gray-500 mt-2">
-        <span x-text="formatNumber(emails[0])">200</span>
+        <span x-text="formatNumber(emails[0])">0</span>
+        <span >60</span>
+        <span class="hidden md:block">120</span>
+        <span>200</span>
         <span class="hidden md:block">600</span>
         <span>1K</span>
         <span class="hidden md:block">2K</span>
-        <span>4K</span>
-        <span class="hidden md:block">8K</span>
-        <span>12K</span>
-        <span class="hidden md:block">18K</span>
-        <span>30K</span>
-        <span class="hidden md:block">50K</span>
+        <span>3K</span>
+        <span class="hidden md:block">5K</span>
+        <span>8K</span>
+        <span class="hidden md:block">11K</span>
+        <span>15K</span>
+        <span class="hidden md:block">25K</span>
+        <span>35K</span>
+        <span class="hidden md:block">60K</span>
         <span x-text="formatNumber(emails[emails.length - 1])">100K</span>
       </div>
 
@@ -457,23 +468,6 @@
             Comprehensive solutions for large-scale sellers
           </p>
           <ul role="list" class="space-y-5 my-7">
-            <li class="flex items-center">
-              <svg
-                class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
-                />
-              </svg>
-              <span
-                class="text-base text-left font-normal leading-tight text-gray-500 ms-3"
-                >Price: $149</span
-              >
-            </li>
             <li class="flex items-center">
               <svg
                 class="flex-shrink-0 w-4 h-4 text-[#611FDC]"
