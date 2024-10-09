@@ -101,6 +101,18 @@
         </p>
       </div>
 
+      <div class="hidden md:flex justify-between text-gray-600 mb-4 gap-2">
+  <span class="w-4/6 text-left bg-gray-100 h-40 rounded p-5 flex items-start justify-start">
+    <p class="font-semibold">Basic Plan</p>
+  </span>
+  <span class="w-3/6 text-center bg-gray-100 h-40 rounded p-5 flex items-start justify-center">
+    <p class="font-semibold">Premium Plan</p>
+  </span>
+  <span class="w-3/6 text-right bg-gray-100 h-40 rounded p-5 flex items-start justify-end">
+    <p class="font-semibold">Enterprise Plan</p>
+  </span>
+</div>
+
       <!-- Email and Pricing Range Slider -->
       <div class="relative">
         <div
@@ -126,11 +138,15 @@
       <!-- Email Count Labels -->
       <div class="flex justify-between text-gray-500 mt-2">
         <span x-text="formatNumber(emails[0])">200</span>
-        <span>900</span>
-        <span>3K</span>
-        <span>8K</span>
-        <span>15K</span>
-        <span>40K</span>
+        <span class="hidden md:block">600</span>
+        <span>1K</span>
+        <span class="hidden md:block">2K</span>
+        <span>4K</span>
+        <span class="hidden md:block">8K</span>
+        <span>12K</span>
+        <span class="hidden md:block">18K</span>
+        <span>30K</span>
+        <span class="hidden md:block">50K</span>
         <span x-text="formatNumber(emails[emails.length - 1])">100K</span>
       </div>
 
